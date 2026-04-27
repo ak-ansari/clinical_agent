@@ -2,7 +2,7 @@ import { GoogleGenAI } from "@google/genai";
 import { Message } from "../types";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
-const model = "gemini-3.1-pro-preview"
+const model = "gemini-2.5-flash-lite"
 const INTAKE_SYSTEM_PROMPT = `
 You are Dr. Anjali, a professional Clinical Intake Specialist. Your goal is to conduct a gentle, thorough, and efficient pre-visit interview with a patient.
 

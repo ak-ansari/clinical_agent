@@ -126,6 +126,19 @@ export default function App() {
     setReport(null);
   };
 
+  const downloadReport = () => {
+    if (!report) return;
+    const blob = new Blob([report], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `Clinical_Brief_${new Date().toISOString().split('T')[0]}.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#1E293B] font-sans selection:bg-blue-100 p-4 md:p-6">
       <AnimatePresence mode="wait">
@@ -416,7 +429,7 @@ export default function App() {
                 <h2 className="text-3xl font-bold text-slate-900 tracking-tight">Clinical Intake Brief</h2>
               </div>
               <div className="flex gap-3">
-                <button className="flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-2xl font-bold text-sm hover:bg-slate-50 transition-all shadow-sm">
+                <button onClick={downloadReport} className="flex items-center gap-2 bg-white border border-slate-200 text-slate-700 px-5 py-3 rounded-2xl font-bold text-sm hover:bg-slate-50 transition-all shadow-sm">
                   <Download className="w-4 h-4" />
                   Export
                 </button>

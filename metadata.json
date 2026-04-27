@@ -1,0 +1,6 @@
+{
+  "name": "Pulse - Clinical Intake Agent",
+  "description": "An AI-powered clinical intake specialist that conducts pre-visit patient interviews and generates structured clinical briefs (CC, HPI, ROS).",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}
